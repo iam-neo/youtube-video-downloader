@@ -29,7 +29,7 @@ A simple web application to download YouTube videos in different resolutions. Bu
 1. Clone the repository:
 
     ```sh
-    git clone https://github.com/yourusername/youtube-video-downloader.git
+    git clone https://github.com/iam-neo/youtube-video-downloader.git
     cd youtube-video-downloader
     ```
 
