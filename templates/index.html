@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Video Downloader</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { max-width: 600px; margin: 50px auto; text-align: center; }
+        input[type="text"] { width: 80%; padding: 10px; margin: 10px 0; }
+        input[type="submit"] { padding: 10px 20px; }
+        .thumbnail { margin-top: 20px; }
+        .download-options { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>YouTube Video Downloader</h1>
+        <form method="POST" action="/">
+            <input type="text" name="url" placeholder="Enter YouTube URL" required>
+            <input type="submit" value="Get Download Options">
+        </form>
+        {% if thumbnail_url %}
+        <div class="thumbnail">
+            <img src="{{ thumbnail_url }}" alt="Video Thumbnail" width="320" height="180">
+        </div>
+        {% endif %}
+        {% if streams %}
+        <div class="download-options">
+            <h2>Select Quality to Download:</h2>
+            <ul>
+                {% for i, stream in streams %}
+                <li><a href="/download/{{ i }}">{{ stream.resolution }} - {{ stream.mime_type }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
